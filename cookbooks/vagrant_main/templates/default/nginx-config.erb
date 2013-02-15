@@ -1,0 +1,68 @@
+server {
+    server_name vagrant-project.dev vagrant-project.dev._.xip.io;
+    root   /vagrant/web;
+    index app_dev.php;
+
+    error_log  /var/log/nginx/development-error.log;
+    access_log  /var/log/nginx/development-access.log;
+
+    location / {
+        try_files $uri $uri/ /app_dev.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_index app_dev.php;
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param SERVER_PORT 4567;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
+
+server {
+    server_name vagrant-project.prod vagrant-project.prod._.xip.io;
+    root   /vagrant/web;
+    index app.php;
+
+    error_log  /var/log/nginx/production-error.log;
+    access_log  /var/log/nginx/production-access.log;
+
+    location / {
+        try_files $uri $uri/ /app.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_index app.php;
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param SERVER_PORT 4567;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
+
+server {
+    server_name xhprof;
+    root   /home/vagrant/.xhprof/xhprof_html;
+    index index.php;
+
+    error_log  /var/log/nginx/xhprof-error.log;
+    access_log  /var/log/nginx/xhprof-access.log;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param SERVER_PORT 4567;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
