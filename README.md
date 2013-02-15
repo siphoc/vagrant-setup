@@ -3,6 +3,9 @@ This is a basic Vagrant setup used for Siphoc projects.
 
 ## Installation
 
+### Submodules
+Install the git submodules (`git submodule update`).
+
 ### Nginx
 Copy these files into your project and alter the nginx configuration to point
 to your projects with a proper domain. Do not forget to add these domains to
