@@ -92,16 +92,7 @@ php_pear "mongo" do
     action :install
 end
 
-bash "Installing fixtures" do
-    user "vagrant"
-    code <<-EOH
-        cd /vagrant
-        app/console doctrine:database:create
-        app/console doctrine:schema:create
-        app/console doctrine:fixtures:load
-    EOH
-end
-
+# Install XHProf and XHGUI
 bash "Downloading XHProf browser" do
     user "vagrant"
     code <<-EOH
