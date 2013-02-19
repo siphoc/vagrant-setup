@@ -34,3 +34,9 @@
 [submodule "cookbooks/mongodb"]
 	path = cookbooks/mongodb
 	url = git://github.com/edelight/chef-mongodb.git
+[submodule "cookbooks/wkhtmltopdf"]
+	path = cookbooks/wkhtmltopdf
+	url = git@github.com:siphoc/chef-wkhtmltopdf.git
+[submodule "cookbooks/xhprof"]
+	path = cookbooks/xhprof
+	url = git@github.com:siphoc/chef-xhprof.git

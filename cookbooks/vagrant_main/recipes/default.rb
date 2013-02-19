@@ -39,6 +39,9 @@ node.set['mysql']['server_repl_password'] = ''
 include_recipe "mysql::server"
 include_recipe "mysql::client"
 
+# WKHTMLToPDF
+include_recipe "wkhtmltopdf::default"
+
 # PHP Configuration
 include_recipe "yum"
 include_recipe "php"
@@ -53,6 +56,9 @@ node.set['nginx']['user'] = 'vagrant'
 include_recipe "ohai"
 include_recipe "nginx"
 include_recipe "nginx-fastcgi"
+
+# XHProf and XHGui
+include_recipe "xhprof::default"
 
 # MongoDB
 include_recipe "mongodb::10gen_repo"
@@ -89,24 +95,6 @@ end
 
 # Install MongoDB
 php_pear "mongo" do
-    action :install
-end
-
-# Install XHProf and XHGUI
-bash "Downloading XHProf browser" do
-    user "vagrant"
-    code <<-EOH
-        git clone git://github.com/preinheimer/xhprof.git /home/vagrant/.xhprof
-        cp /home/vagrant/.xhprof/xhprof_lib/config.sample.php /home/vagrant/.xhprof/xhprof_lib/config.php
-    EOH
-end
-
-template "/home/vagrant/.xhprof/xhprof_lib/config.php" do
-    source "xhprof-config.erb"
-    mode 0644
-end
-
-package "php5-xhprof" do
     action :install
 end
 
