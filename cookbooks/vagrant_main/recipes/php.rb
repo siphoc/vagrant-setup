@@ -16,7 +16,6 @@ include_recipe "php::module_mysql"
 include_recipe "php::module_curl"
 include_recipe "php-fpm"
 
-
 # PHP XDebug
 case node['platform']
 when "centos", "redhat", "fedora"

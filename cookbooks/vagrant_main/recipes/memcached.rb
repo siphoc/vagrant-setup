@@ -1,5 +1,9 @@
 include_recipe "memcached"
 
-php_pear "mongo" do
+package "libmemcached-dev" do
+    action :install
+end
+
+php_pear "memcached" do
     action :install
 end
