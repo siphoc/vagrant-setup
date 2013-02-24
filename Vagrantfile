@@ -25,9 +25,16 @@ Vagrant::Config.run do |config|
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
+  # First we need to upgrade chef since some cookbooks require version >=10.16.4
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
-    chef.add_recipe('vagrant_main')
+    chef.add_recipe('vagrant_main::update_chef')
+  end
+
+  # Install all cookbooks
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "cookbooks"
+    chef.add_recipe('vagrant_main::default')
 
     chef.json.merge!({
       :dotfiles => {

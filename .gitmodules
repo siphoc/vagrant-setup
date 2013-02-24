@@ -43,3 +43,6 @@
 [submodule "cookbooks/memcached"]
 	path = cookbooks/memcached
 	url = git@github.com:opscode-cookbooks/memcached.git
+[submodule "cookbooks/php"]
+	path = cookbooks/php
+	url = git@github.com:opscode-cookbooks/php.git
