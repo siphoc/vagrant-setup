@@ -40,3 +40,6 @@
 [submodule "cookbooks/xhprof"]
 	path = cookbooks/xhprof
 	url = git@github.com:siphoc/chef-xhprof.git
+[submodule "cookbooks/memcached"]
+	path = cookbooks/memcached
+	url = git@github.com:opscode-cookbooks/memcached.git
