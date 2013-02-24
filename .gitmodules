@@ -43,3 +43,6 @@
 [submodule "cookbooks/php"]
 	path = cookbooks/php
 	url = git@github.com:opscode-cookbooks/php.git
+[submodule "cookbooks/ssmtp"]
+	path = cookbooks/ssmtp
+	url = git://github.com/svanzoest/ssmtp-cookbook.git

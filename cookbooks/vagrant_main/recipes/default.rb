@@ -1,6 +1,7 @@
 include_recipe "git"
 include_recipe "openssl"
 include_recipe "wkhtmltopdf::default"
+include_recipe "ssmtp"
 
 include_recipe "vagrant_main::dotfiles"
 include_recipe "vagrant_main::php"
