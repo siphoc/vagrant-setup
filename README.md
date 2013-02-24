@@ -1,6 +1,24 @@
 # Vagrant setup
 This is a basic Vagrant setup used for Siphoc projects.
 
+## Orientation
+This setup is usefull for PHP development. It includes the following packages:
+
+* PHP 5.3
+* PHP-FPM (Used by NGINX)
+* MongoDB (+ PHP Driver)
+* MySQL (+ PHP Driver)
+* Memcached (+ PHP Driver)
+* PHPIntl
+* PHP Curl module
+* XDebug (+ PHP Driver)
+
+It is focused on Symfony2 development (using the web/ folder as root).
+
+### Additional packages
+* wkthmltopdf
+* XHProf + XHGUI (+ Domain, see NGINX config)
+
 ## Installation
 
 ### Submodules
