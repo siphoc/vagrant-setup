@@ -2,7 +2,7 @@
 This is a basic Vagrant setup used for Siphoc projects.
 
 ## Orientation
-This setup is usefull for PHP development. It includes the following packages:
+This setup is useful for PHP development. It includes the following packages:
 
 * PHP 5.3
 * PHP-FPM (Used by NGINX)
